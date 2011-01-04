@@ -157,6 +157,7 @@ static struct fs_path_config android_dirs[] = {
 ** and will allow partial matches.
 */
 static struct fs_path_config android_files[] = {
+    { 00700, AID_ROOT,      AID_ROOT,     "system/etc/init.d/*" },
     { 00440, AID_ROOT,      AID_SHELL,     "system/etc/init.goldfish.rc" },
     { 00550, AID_ROOT,      AID_SHELL,     "system/etc/init.goldfish.sh" },
     { 00440, AID_ROOT,      AID_SHELL,     "system/etc/init.trout.rc" },
@@ -191,6 +192,8 @@ static struct fs_path_config android_files[] = {
 		/* the following file is INTENTIONALLY set-uid, and IS included
 		 * in user builds. */
     { 06750, AID_ROOT,      AID_SHELL,     "system/bin/run-as" },
+        /* the following file should only be executable by root */
+    { 00700, AID_ROOT,      AID_ROOT,      "system/bin/sysinit.rc" },
     { 00755, AID_ROOT,      AID_SHELL,     "system/bin/*" },
     { 00755, AID_ROOT,      AID_SHELL,     "system/xbin/*" },
     { 00755, AID_ROOT,      AID_SHELL,     "system/vendor/bin/*" },
