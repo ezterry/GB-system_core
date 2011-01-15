@@ -193,7 +193,7 @@ static struct fs_path_config android_files[] = {
 		 * in user builds. */
     { 06750, AID_ROOT,      AID_SHELL,     "system/bin/run-as" },
         /* the following file should only be executable by root */
-    { 00700, AID_ROOT,      AID_ROOT,      "system/bin/sysinit.rc" },
+    { 00700, AID_ROOT,      AID_ROOT,      "sbin/sysinit.rc" },
     { 00755, AID_ROOT,      AID_SHELL,     "system/bin/*" },
     { 00755, AID_ROOT,      AID_SHELL,     "system/xbin/*" },
     { 00755, AID_ROOT,      AID_SHELL,     "system/vendor/bin/*" },
