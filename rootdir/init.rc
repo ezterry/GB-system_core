@@ -110,6 +110,7 @@ on post-fs
     # Mount compressed filesystems
     mount squashfs loop@/system/lib/modules/modules.sqf /system/lib/modules ro
     mount squashfs loop@/system/xbin/xbin.sqf /system/xbin ro
+    mount squashfs loop@/system/fonts/fonts.sqf /system/fonts ro
 
     # Create dump dir and collect dumps.
     # Do this before we mount cache so eventually we can use cache for
