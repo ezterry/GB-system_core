@@ -2,16 +2,11 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 TOOLS := \
-	cat \
 	ps \
-	kill \
 	insmod \
 	rmmod \
-	lsmod \
 	ifconfig \
 	setconsole \
-	mkdir \
-	rmdir \
 	reboot \
 	getevent \
 	sendevent \
@@ -21,18 +16,13 @@ TOOLS := \
 	start \
 	stop \
 	notify \
-	cmp \
-	dmesg \
 	route \
 	hd \
-	dd \
 	getprop \
 	setprop \
 	watchprops \
 	log \
 	sleep \
-	renice \
-	printenv \
 	smd \
 	newfs_msdos \
 	netstat \
@@ -40,7 +30,6 @@ TOOLS := \
 	schedtop \
 	iftop \
 	id \
-	uptime \
 	vmstat \
 	nandread \
 	ionice \
@@ -48,9 +37,20 @@ TOOLS := \
 
 ifndef TINY_TOOLBOX
 TOOLS += \
+	cat \
+	kill \
 	ls \
+	lsmod \
+	mkdir \
+	rmdir \
 	mount \
 	umount \
+	cmp \
+	dmesg \
+	dd \
+	renice \
+	printenv \
+	uptime \
 	rm \
 	ln \
 	df \
