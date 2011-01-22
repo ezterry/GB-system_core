@@ -1,3 +1,8 @@
+#Build SH unless SKIP_SH_BUILD_USE_BB is true
+# then symlink busybox sh
+
+ifneq ($(SKIP_SH_BUILD_USE_BB),true)
+
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
@@ -51,3 +56,13 @@ make_ash_files:
 	sh ./mkinit.sh $(PRIVATE_SRC_FILES) 
 
 include $(BUILD_EXECUTABLE)
+else
+
+#forget sh just symlink to busybox
+file := $(TARGET_OUT)/bin/sh
+ALL_PREBUILT += $(file)
+$(file) : busybox | $(ACP)
+	mkdir -p $(TARGET_OUT)/bin
+	ln -s ../xbin/busybox $(TARGET_OUT)/bin/sh
+
+endif
