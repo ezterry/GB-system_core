@@ -63,6 +63,6 @@ file := $(TARGET_OUT)/bin/sh
 ALL_PREBUILT += $(file)
 $(file) : busybox | $(ACP)
 	mkdir -p $(TARGET_OUT)/bin
-	ln -s ../xbin/busybox $(TARGET_OUT)/bin/sh
+	ln -sf ../xbin/busybox $(TARGET_OUT)/bin/sh
 
 endif
