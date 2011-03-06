@@ -606,7 +606,7 @@ static int property_service_init_action(int nargs, char **args)
      * after the ro.foo properties are set above so
      * that /data/local.prop cannot interfere with them.
      */
-    start_property_service();
+    start_property_service(hardware);
     return 0;
 }
 

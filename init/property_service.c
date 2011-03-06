@@ -512,10 +512,15 @@ int properties_inited(void)
     return property_area_inited;
 }
 
-void start_property_service(void)
+void start_property_service(char* hw)
 {
     int fd;
-
+    
+    if (sizeof(hw) > 0) {
+        char props[64];
+        snprintf(props, sizeof(props), "/system/build.%s.prop", hw);
+        load_properties_from_file(props);
+    }
     load_properties_from_file(PROP_PATH_SYSTEM_BUILD);
     load_properties_from_file(PROP_PATH_SYSTEM_DEFAULT);
     load_properties_from_file(PROP_PATH_LOCAL_OVERRIDE);
