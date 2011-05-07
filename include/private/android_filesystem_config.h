@@ -62,6 +62,9 @@
 #define AID_CACHE         2001  /* cache access */
 #define AID_DIAG          2002  /* access to diagnostic resources */
 
+/* Custom IDs 2900-2999 */
+#define AID_SUPERUSER     2900  /* super user app */
+
 /* The 3000 series are intended for use as supplemental group id's only.
  * They indicate special Android capabilities that the kernel is aware of. */
 #define AID_NET_BT_ADMIN  3001  /* bluetooth: create any socket */
@@ -114,6 +117,7 @@ static const struct android_id_info android_ids[] = {
     { "net_admin", AID_NET_ADMIN, },
     { "misc",      AID_MISC, },
     { "nobody",    AID_NOBODY, },
+    { "superuser", AID_SUPERUSER, },
 };
 
 #define android_id_count \
