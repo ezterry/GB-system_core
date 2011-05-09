@@ -211,15 +211,15 @@ on boot
 
 # Define the memory thresholds at which the above process classes will
 # be killed.  These numbers are in pages (4k).
-    setprop ro.FOREGROUND_APP_MEM 256
-    setprop ro.VISIBLE_APP_MEM 512
-    setprop ro.PERCEPTIBLE_APP_MEM 768
-    setprop ro.HEAVY_WEIGHT_APP_MEM 768
+    setprop ro.FOREGROUND_APP_MEM 768
+    setprop ro.VISIBLE_APP_MEM 1024
+    setprop ro.PERCEPTIBLE_APP_MEM 1281
+    setprop ro.HEAVY_WEIGHT_APP_MEM 1281
     setprop ro.SECONDARY_SERVER_MEM 2048
     setprop ro.BACKUP_APP_MEM 2048
-    setprop ro.HOME_APP_MEM 768
+    setprop ro.HOME_APP_MEM 1281
     setprop ro.HIDDEN_APP_MEM 3072
-    setprop ro.EMPTY_APP_MEM 4096
+    setprop ro.EMPTY_APP_MEM 5120
 
 # Write value must be consistent with the above properties.
 # Note that the driver only supports 6 slots, so we have combined some of
@@ -230,7 +230,7 @@ on boot
     write /proc/sys/vm/overcommit_memory 1
     write /proc/sys/vm/min_free_order_shift 4
     write /sys/module/lowmemorykiller/parameters/fudgeswap 128
-    write /sys/module/lowmemorykiller/parameters/minfree 256,512,768,2048,3072,4096
+    write /sys/module/lowmemorykiller/parameters/minfree 768,1024,1281,2048,3072,5120
 
     # Set init its forked children's oom_adj.
     write /proc/1/oom_adj -16
