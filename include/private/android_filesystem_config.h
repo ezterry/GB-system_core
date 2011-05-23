@@ -137,7 +137,8 @@ struct fs_path_config {
 */
 
 static struct fs_path_config android_dirs[] = {
-    { 00770, AID_SYSTEM, AID_CACHE,  "cache" },
+    { 00771, AID_SYSTEM, AID_CACHE,  "cache" },
+    { 00771, AID_SYSTEM, AID_SYSTEM, "cache/dalvik-cache" },
     { 00771, AID_SYSTEM, AID_SYSTEM, "data/app" },
     { 00771, AID_SYSTEM, AID_SYSTEM, "data/app-private" },
     { 00771, AID_SYSTEM, AID_SYSTEM, "data/dalvik-cache" },
