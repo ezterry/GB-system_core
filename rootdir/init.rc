@@ -218,7 +218,7 @@ on boot
     setprop ro.SECONDARY_SERVER_MEM 2048
     setprop ro.BACKUP_APP_MEM 2048
     setprop ro.HOME_APP_MEM 1281
-    setprop ro.HIDDEN_APP_MEM 3072
+    setprop ro.HIDDEN_APP_MEM 3328
     setprop ro.EMPTY_APP_MEM 5120
 
 # Write value must be consistent with the above properties.
@@ -230,7 +230,7 @@ on boot
     write /proc/sys/vm/overcommit_memory 1
     write /proc/sys/vm/min_free_order_shift 4
     write /sys/module/lowmemorykiller/parameters/fudgeswap 128
-    write /sys/module/lowmemorykiller/parameters/minfree 768,1024,1281,2048,3072,5120
+    write /sys/module/lowmemorykiller/parameters/minfree 768,1024,1281,2048,3328,5120
 
     # Set init its forked children's oom_adj.
     write /proc/1/oom_adj -16
