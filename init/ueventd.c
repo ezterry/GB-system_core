@@ -49,6 +49,12 @@ int ueventd_main(int argc, char **argv)
     snprintf(tmp, sizeof(tmp), "/ueventd.%s.rc", hardware);
     ueventd_parse_config_file(tmp);
 
+#ifdef INIT_USES_DS_UEVENT
+    /*Only load if we are not the simulator*/
+    if(strncmp(hardware,"goldfish",9))
+        ueventd_parse_config_file("/ueventd.ds.rc");
+#endif
+
     device_init();
 
     ufd.events = POLLIN;
