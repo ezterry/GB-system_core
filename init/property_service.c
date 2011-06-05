@@ -78,6 +78,8 @@ struct {
     { "vpn.",             AID_VPN,      0 },
     { "debug.",           AID_SHELL,    0 },
     { "log.",             AID_SHELL,    0 },
+    { "phone.sms.lock",   AID_SYSTEM,   0 },
+    { "phone.sms.lock",   AID_RADIO,    0 },
     { "service.adb.root", AID_SHELL,    0 },
     { "persist.zram.size",AID_SYSTEM,   0 },
     { "persist.sys.",     AID_SYSTEM,   0 },
