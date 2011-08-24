@@ -96,7 +96,7 @@ on fs
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
     mount yaffs2 mtd@system /system
     mount yaffs2 mtd@system /system ro remount
-    mount yaffs2 mtd@userdata /data nosuid nodev
+    mount yaffs2 mtd@userdata /data nosuid nodev noatime
     mount yaffs2 mtd@cache /cache nosuid nodev
 
 on post-fs
@@ -235,6 +235,15 @@ on boot
 
     # Set init its forked children's oom_adj.
     write /proc/1/oom_adj -16
+
+    # MTD != rotational
+
+    write /sys/block/mtdblock0/queue/rotational 0
+    write /sys/block/mtdblock1/queue/rotational 0
+    write /sys/block/mtdblock2/queue/rotational 0
+    write /sys/block/mtdblock3/queue/rotational 0
+    write /sys/block/mtdblock4/queue/rotational 0
+    write /sys/block/mtdblock5/queue/rotational 0
 
     # Tweak background writeout
     write /proc/sys/vm/dirty_expire_centisecs 200
