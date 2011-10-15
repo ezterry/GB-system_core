@@ -9,7 +9,7 @@ loglevel 3
 
 # setup the global environment
     export PATH /sbin:/data/local/bin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
-    export LD_LIBRARY_PATH /vendor/lib:/system/lib
+    export LD_LIBRARY_PATH /vendor/lib:/system/lib:/system/xlib
     export ANDROID_BOOTLOGO 1
     export ANDROID_ROOT /system
     export ANDROID_ASSETS /system/app
@@ -111,6 +111,7 @@ on post-fs
     mount squashfs loop@/system/lib/modules/modules.sqf /system/lib/modules ro
     mount squashfs loop@/system/xbin/xbin.sqf /system/xbin ro
     mount squashfs loop@/system/fonts/fonts.sqf /system/fonts ro
+    mount squashfs loop@/system/xlib/xlib.sqf /system/xlib ro
 
     # Create dump dir and collect dumps.
     # Do this before we mount cache so eventually we can use cache for
