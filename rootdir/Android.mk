@@ -42,6 +42,12 @@ $(file) : $(LOCAL_PATH)/init.rc | $(ACP)
 	$(transform-prebuilt-to-target)
 ALL_PREBUILT += $(file)
 $(INSTALLED_RAMDISK_TARGET): $(file)
+
+file := $(TARGET_ROOT_OUT)/sbin/ntp.sh
+$(file) : $(LOCAL_PATH)/ntp.sh | $(ACP)
+	$(transform-prebuilt-to-target)
+ALL_PREBUILT += $(file)
+$(INSTALLED_RAMDISK_TARGET): $(file)
 endif
 
 file := $(TARGET_ROOT_OUT)/ueventd.rc

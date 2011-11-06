@@ -332,6 +332,15 @@ on property:persist.service.adb.enable=1
 on property:persist.service.adb.enable=0
     stop adbd
 
+#ntpd sync service
+#run on boot if persist.sys.userntpd.enable=1
+service userntpd /sbin/ntp.sh
+    disabled
+    oneshot
+
+on property:persist.sys.userntpd.enable=1
+    start userntpd
+
 service servicemanager /system/bin/servicemanager
     user system
     critical
